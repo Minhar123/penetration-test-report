@@ -1,0 +1,47 @@
+========================================
+PENETRATION TEST – COMMAND REFERENCE
+Target: 172.20.10.2
+========================================
+
+
+[ RECONNAISSANCE ]
+
+sudo arp-scan -l
+
+
+[ SCANNING & ENUMERATION ]
+
+nmap -A 172.20.10.2
+ftp 172.20.10.2
+smbclient -L //172.20.10.2/
+dirb http://172.20.10.2
+wpscan --url http://172.20.10.2 --enumerate u
+
+
+[ CREDENTIAL ATTACKS ]
+
+hydra -l <username> -P /usr/share/wordlists/rockyou.txt ftp://172.20.10.2
+
+
+[ EXPLOITATION ]
+
+searchsploit wordpress
+msfconsole
+
+
+[ POST-EXPLOITATION ]
+
+whoami
+uname -a
+cat /etc/passwd
+
+
+[ WEB ACCESS ]
+
+http://172.20.10.2:12380/wp-admin
+http://172.20.10.2:12380/phpmyadmin
+
+
+========================================
+END OF COMMANDS
+========================================
